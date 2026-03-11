@@ -2,6 +2,9 @@ import styled from "styled-components"
 import Logo from '../assets/Logo.png'
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import '../Styles/Style.css'
+import { useEffect, useRef, useState } from "react";
+
+
 
 const Nav = styled.div`
 
@@ -24,7 +27,7 @@ const Img = styled.img`
 const Input = styled.input`
     position: relative;
     background: none;
-    width: 1079px;
+    width: 79%;
     height: 40px;
     margin-left: 55px;
     border-radius: 10px;
@@ -36,7 +39,7 @@ const BtnPesquisa = styled.button`
     width: 106px;
     height: 36px;
     border-radius: 5px;
-    left: 1040px;
+    left: 75%;
     top: 145px;
     font-family: Ubuntu;
     font-size: 18px;
@@ -58,7 +61,7 @@ const BtnCad = styled.button`
 
 const Lupa = styled.div`
     position: absolute;
-    left: 65px;
+    left: 55px;
     top: 141px;
     display: flex;
     justify-content: center;
@@ -72,9 +75,20 @@ const Lupa = styled.div`
 
 
 function home(){
+    const boxRef = useRef(null);
+
+    useEffect(()=> {
+        const elemento = boxRef.current;
+
+        console.log("width Calculado", elemento.offsetWidth);
+        console.log("Heigh Calculado", elemento.offsetHeight);
+    }, []);
+
     return(
         <div>
-            <Nav>
+            <Nav
+                ref={boxRef}
+            >
                 <NavLogo>
                     <Img src={Logo} alt="Logo"/>
                     <h1>SoftPet</h1>
