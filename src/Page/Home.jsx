@@ -50,7 +50,7 @@ const BtnPesquisa = styled.button`
 const BtnCad = styled.button`
     color: #FFFFFF;
     background: linear-gradient(to right, #1f6fe5, #22c1e8);
-    width: 156px;
+    width: 11%;
     height: 50px;
     border-radius: 10px;
     font-family: Ubuntu;
@@ -86,9 +86,7 @@ function home(){
 
     return(
         <div>
-            <Nav
-                ref={boxRef}
-            >
+            <Nav ref={boxRef}>
                 <NavLogo>
                     <Img src={Logo} alt="Logo"/>
                     <h1>SoftPet</h1>
@@ -98,6 +96,7 @@ function home(){
                 </Lupa>
                 <Input
                 type="text"
+                
                 />
                 <BtnPesquisa>Pesquisar</BtnPesquisa>
                 <BtnCad>+ Cadastrar</BtnCad>
