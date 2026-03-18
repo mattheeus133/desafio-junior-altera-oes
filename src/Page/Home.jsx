@@ -101,6 +101,10 @@ function home(){
                 <BtnPesquisa>Pesquisar</BtnPesquisa>
                 <BtnCad>+ Cadastrar</BtnCad>
             </Nav>
+
+            <div>
+                <h1>Main da pag</h1>
+            </div>
         </div>
     )
 }
