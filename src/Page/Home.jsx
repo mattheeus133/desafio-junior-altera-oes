@@ -3,6 +3,7 @@ import Logo from '../assets/Logo.png'
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import '../Styles/Style.css'
 import { useEffect, useRef, useState } from "react";
+import { Modal } from "../Components/modal";
 
 
 
@@ -84,6 +85,8 @@ function home(){
         console.log("Heigh Calculado", elemento.offsetHeight);
     }, []);
 
+    const [open, setOpen] = useState(false);
+
     return(
         <div>
             <Nav ref={boxRef}>
@@ -99,12 +102,17 @@ function home(){
                 
                 />
                 <BtnPesquisa>Pesquisar</BtnPesquisa>
-                <BtnCad>+ Cadastrar</BtnCad>
+                <BtnCad onClick={() => setOpen(true)}>+ Cadastrar</BtnCad>
             </Nav>
 
             <div>
                 <h1>Main da pag</h1>
             </div>
+
+              <Modal isOpen={open} onClose={() => setOpen(false)}>
+                <h2>Meu Popup</h2>
+                <p>Conteúdo dentro do modal</p>
+            </Modal>
         </div>
     )
 }
