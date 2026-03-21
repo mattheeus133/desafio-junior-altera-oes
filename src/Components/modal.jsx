@@ -4,15 +4,13 @@ export function Modal({isOpen, onClose, children}) {
     if (!isOpen) return null;
 
     return (
-        <div style={styles.containerModal}>
             <Overlay onClick={onClose}>
-                <Modall style={styles.modal} onClick={(e) => e.stopPropagation()}>
+                <Modall onClick={(e) => e.stopPropagation()}>
                     {children}
-                    <BtnClose style={styles.btnClose} onClick={onClose}>X</BtnClose>
+                    <BtnClose onClick={onClose}>X</BtnClose>
                         
                 </Modall>
             </Overlay>
-        </div>
     )
 }
 
