@@ -1,9 +1,14 @@
 import styled from "styled-components"
 import Logo from '../assets/Logo.png'
-import { HiMagnifyingGlass } from "react-icons/hi2";
+
 import '../Styles/Style.css'
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "../Components/modal";
+import {styleInput} from "../Styles/common"
+import {IconLupa, NomeAnimal, NomeTutor, Telefone, Cachorro, Gato, AnimalRaca,  Date} from "../Utils/Icons"
+
+
+
 
 
 
@@ -73,6 +78,8 @@ const Lupa = styled.div`
     background: #404A5C;
     border-radius: 5px;
 `
+/* ------ Style Modal -------- */
+
 const DivModal = styled.div`
     color: white;
 `
@@ -87,12 +94,31 @@ const DivColuna1 = styled.div`
     flex-direction: column;
     width: 231px;
     height: 223px;
+    gap: 10px;
 `
+const InputNomeAnimal = styled.input`
+    ${styleInput}
+`
+const InputNomeTutor = styled.input`
+    ${styleInput}
+`
+const InputTelefone = styled.input`
+    ${styleInput}
+`
+
 const DivColuna2 =styled.div`
     display: flex;
     flex-direction: column;
+    gap: 10px;
 
 `
+const InputRaca = styled.input`
+    ${styleInput}
+`
+const InputDate = styled.input`
+    ${styleInput}
+`
+
 const DivAnimal = styled.div`
     display: flex;
     flex-direction: row;
@@ -106,7 +132,7 @@ const InputCheckbox = styled.input`
 const DivCheck1 = styled.div`
     border: 3px solid white;
     width: 111px;
-    height: 39px;
+    height: 30px;
     display: flex;
     align-items: center;
     border-radius: 10px;
@@ -114,11 +140,12 @@ const DivCheck1 = styled.div`
 const DivCheck2 = styled.div`
     border: 3px solid white;
     width: 111px;
-    height: 39px;
+    height: 30px;
     display: flex;
     align-items: center;
     border-radius: 10px;
 `
+/*------- Final Style Modal -------- */
 
 function home(){
     const boxRef = useRef(null);
@@ -140,7 +167,7 @@ function home(){
                     <h1>SoftPet</h1>
                 </NavLogo>
                 <Lupa>
-                 <HiMagnifyingGlass className="icon"/>
+                    {IconLupa}
                 </Lupa>
                 <Input
                 type="text"
@@ -159,49 +186,51 @@ function home(){
                     <h2>Meu Popup</h2>
                 <DivColuna0>
                     <DivColuna1>
-                    <label>Nome do animal:</label>
-                    <input
+                    <label>{NomeAnimal} Nome do animal:</label>
+                    <InputNomeAnimal
                         type="text"
                     />
 
-                    <label>Nome do tutor:</label>
-                    <input
+                    <label>{NomeTutor} Nome do tutor:</label>
+                    <InputNomeTutor
                         type="text"
                     />
 
-                    <label>Telefone: </label>
-                    <input
+                    <label>{Telefone} Telefone: </label>
+                    <InputTelefone
                         type="text"
                     />
                     </DivColuna1>
 
                     <DivColuna2>
-                        <label>Animal</label>
+                        <label>{AnimalRaca} Animal</label>
                         <DivAnimal>   
                             <DivCheck1>
                                 <InputCheckbox
                                     type="checkbox"
                                 />
-                                <label>Cachorro</label>
+                                <label>{Cachorro} Cachorro</label>
                             </DivCheck1>
                             <DivCheck2>
                                 <input
                                     type="checkbox"
                                 />
-                                <label>Gato</label>
+                                <label>{Gato} Gato</label>
                             </DivCheck2>
                         </DivAnimal>
 
-                    <label>Raça:</label>
-                    <input
+                    <label>{AnimalRaca} Raça:</label>
+                    <InputRaca
                         type="text"
                     />
-                    <label>Nascimento:</label>
-                    <input
+                    <label>{Date} Nascimento:</label>
+                    <InputDate
                     type="date"
                     />
                     </DivColuna2>
                 </DivColuna0>
+
+                <button>Cadastra</button>
                 </Modal>
             </DivModal>
         </div>
