@@ -230,7 +230,7 @@ function home(){
                     </DivColuna2>
                 </DivColuna0>
 
-                <button>Cadastra</button>
+                <BtnCad>Cadastra</BtnCad>
                 </Modal>
             </DivModal>
         </div>
