@@ -158,7 +158,46 @@ function home(){
     }, []);
 
     const [open, setOpen] = useState(false);
+    
+    const [animais, setAnimais] = useState([]);
+    const [nomeAnimal, setNomeAnimal] = useState("");
+    const [nomeTutor, setNomeTutor] = useState("");
+    const [telefone, setTelefone] = useState ("");
+    const [checkCachorro, setCheckCachorro] = useState(false);
+    const [checkGato, setCheckGato] = useState(false);
+    const [raca, setRaca] = useState("");
+    const [data, setData] = useState(null);
 
+    async function buscarAnimal(){
+        const res = await fetch("http://localhost:3000/animais")
+        const data = await res.json();
+        setAnimais(data);
+    }
+
+    useEffect(() => {
+        buscarAnimal();
+    }, []); // Se o get retornar valor null o codigo nao quebra
+
+    async function salvarAnimal(e){
+        e.preventDefault();
+
+        await fetch("http://localhost:3000/animais",{
+        method:"POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeAnimal,
+            nomeTutor,
+            telefone,
+            checkCachorro,
+            checkGato,
+            raca,
+            data
+            }),
+        });
+    }
+        buscarAnimal();
     return(
         <div>
             <Nav ref={boxRef}>
