@@ -83,7 +83,7 @@ const Lupa = styled.div`
 const DivModal = styled.div`
     color: white;
 `
-const DivColuna0 = styled.div`
+const DivColuna0 = styled.form`
     display: flex;
     flex-direction: row;
     gap: 100px;
@@ -168,6 +168,7 @@ function home(){
     const [raca, setRaca] = useState("");
     const [data, setData] = useState(null);
 
+
     async function buscarAnimal(){
         const res = await fetch("http://localhost:3000/animais")
         const data = await res.json();
@@ -181,7 +182,7 @@ function home(){
     async function salvarAnimal(e){
         e.preventDefault();
 
-        await fetch("http://localhost:3000/animais",{
+        await fetch("http://localhost:3000/Animais",{
         method:"POST",
         headers: {
             "Content-Type": "application/json",
@@ -196,6 +197,10 @@ function home(){
             data
             }),
         });
+
+        console.log("Resposta Status", res.status);
+
+        
     }
         buscarAnimal();
     return(
@@ -223,21 +228,27 @@ function home(){
             <DivModal>
                 <Modal isOpen={open} onClose={() => setOpen(false)}>
                     <h2>Meu Popup</h2>
-                <DivColuna0>
+                <DivColuna0 onSubmit={salvarAnimal}>
                     <DivColuna1>
                     <label>{NomeAnimal} Nome do animal:</label>
                     <InputNomeAnimal
                         type="text"
+                        value={nomeAnimal}
+                        onChange={(e) => setNomeAnimal(e.target.value)}
                     />
 
                     <label>{NomeTutor} Nome do tutor:</label>
                     <InputNomeTutor
                         type="text"
+                        value={nomeTutor}
+                        onChange={(e) => setNomeTutor(e.target.value)}
                     />
 
                     <label>{Telefone} Telefone: </label>
                     <InputTelefone
                         type="text"
+                        value={telefone}
+                        onChange={(e) => setTelefone(e.target.value)}
                     />
                     </DivColuna1>
 
@@ -247,12 +258,16 @@ function home(){
                             <DivCheck1>
                                 <InputCheckbox
                                     type="checkbox"
+                                    value={checkCachorro}
+                                    onChange={(e) => setCheckCachorro(e.target.value)}
                                 />
                                 <label>{Cachorro} Cachorro</label>
                             </DivCheck1>
                             <DivCheck2>
                                 <input
                                     type="checkbox"
+                                    value={checkGato}
+                                    onChange={(e) => setCheckGato(e.target.value)}
                                 />
                                 <label>{Gato} Gato</label>
                             </DivCheck2>
@@ -261,15 +276,20 @@ function home(){
                     <label>{AnimalRaca} Raça:</label>
                     <InputRaca
                         type="text"
+                        value={raca}
+                        onChange={(e) => setRaca(e.target.value)}
                     />
                     <label>{Date} Nascimento:</label>
                     <InputDate
                     type="date"
+                    value={data}
+                    onChange={(e) => setData(e.target.value)}
                     />
                     </DivColuna2>
+        
                 </DivColuna0>
 
-                <BtnCad>Cadastra</BtnCad>
+                <BtnCad type="submit">Cadastra</BtnCad>
                 </Modal>
             </DivModal>
         </div>
