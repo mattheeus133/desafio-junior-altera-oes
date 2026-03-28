@@ -182,7 +182,7 @@ function home(){
     async function salvarAnimal(e){
         e.preventDefault();
 
-        await fetch("http://localhost:3000/Animais",{
+        const res = await fetch("http://localhost:3000/Animais",{
         method:"POST",
         headers: {
             "Content-Type": "application/json",
@@ -202,7 +202,7 @@ function home(){
 
         
     }
-        buscarAnimal();
+    
     return(
         <div>
             <Nav ref={boxRef}>
@@ -258,16 +258,16 @@ function home(){
                             <DivCheck1>
                                 <InputCheckbox
                                     type="checkbox"
-                                    value={checkCachorro}
-                                    onChange={(e) => setCheckCachorro(e.target.value)}
+                                    checked={checkCachorro}
+                                    onChange={(e) => setCheckCachorro(e.target.checked)}
                                 />
                                 <label>{Cachorro} Cachorro</label>
                             </DivCheck1>
                             <DivCheck2>
                                 <input
                                     type="checkbox"
-                                    value={checkGato}
-                                    onChange={(e) => setCheckGato(e.target.value)}
+                                    checked={checkGato}
+                                    onChange={(e) => setCheckGato(e.target.checked)}
                                 />
                                 <label>{Gato} Gato</label>
                             </DivCheck2>
@@ -286,10 +286,10 @@ function home(){
                     onChange={(e) => setData(e.target.value)}
                     />
                     </DivColuna2>
-        
+                    <BtnCad type="submit">Cadastra</BtnCad>
                 </DivColuna0>
 
-                <BtnCad type="submit">Cadastra</BtnCad>
+                
                 </Modal>
             </DivModal>
         </div>
