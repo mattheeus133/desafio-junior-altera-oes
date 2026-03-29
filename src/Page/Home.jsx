@@ -166,7 +166,7 @@ function home(){
     const [checkCachorro, setCheckCachorro] = useState(false);
     const [checkGato, setCheckGato] = useState(false);
     const [raca, setRaca] = useState("");
-    const [data, setData] = useState(null);
+    const [data, setData] = useState("");
 
 
     async function buscarAnimal(){
@@ -194,12 +194,19 @@ function home(){
             checkCachorro,
             checkGato,
             raca,
-            data
+            dataNascimento: data
             }),
         });
 
         console.log("Resposta Status", res.status);
-
+        console.log("Data", data);
+        console.log("Body recebido:",   nomeAnimal,
+            nomeTutor,
+            telefone,
+            checkCachorro,
+            checkGato,
+            raca,
+            data);
         
     }
     
@@ -283,7 +290,10 @@ function home(){
                     <InputDate
                     type="date"
                     value={data}
-                    onChange={(e) => setData(e.target.value)}
+                    onChange={(e) => {
+                        setData(e.target.value);
+                        console.log("valor digitado", e.target.value);
+                        }}
                     />
                     </DivColuna2>
                     <BtnCad type="submit">Cadastra</BtnCad>
