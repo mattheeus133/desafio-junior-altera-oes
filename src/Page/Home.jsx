@@ -78,6 +78,14 @@ const Lupa = styled.div`
     background: #404A5C;
     border-radius: 5px;
 `
+const DivMain = styled.div`
+    border: 1px solid red;
+    height: 60vh;
+`
+const DivMain2 = styled.div`
+    border: 1px solid red;
+    margin: 50px;
+`
 /* ------ Style Modal -------- */
 
 const DivModal = styled.div`
@@ -228,9 +236,11 @@ function home(){
                 <BtnCad onClick={() => setOpen(true)}>+ Cadastrar</BtnCad>
             </Nav>
 
-            <div>
-                <h1>Main da pag</h1>
-            </div>
+            <DivMain>
+                <DivMain2>
+                    <h1>Main 2</h1>
+                </DivMain2>
+            </DivMain>
 
             <DivModal>
                 <Modal isOpen={open} onClose={() => setOpen(false)}>
@@ -302,6 +312,8 @@ function home(){
                 
                 </Modal>
             </DivModal>
+
+            
         </div>
     )
 }
