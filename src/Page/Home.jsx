@@ -238,7 +238,8 @@ function home(){
 
             <DivMain>
                 <DivMain2>
-                    <h1>Main 2</h1>
+                    <label>Nome animal:</label>
+                    <label>Nome Tutor:</label>
                 </DivMain2>
             </DivMain>
 
