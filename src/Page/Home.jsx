@@ -178,7 +178,7 @@ function home(){
 
 
     async function buscarAnimal(){
-        const res = await fetch("http://localhost:3000/animais")
+        const res = await fetch("http://localhost:3000/Animais")
         const data = await res.json();
         setAnimais(data);
     }
@@ -186,6 +186,13 @@ function home(){
     useEffect(() => {
         buscarAnimal();
     }, []); // Se o get retornar valor null o codigo nao quebra
+
+    async function buscarAnimalNome(){
+        const res = await fetch('http://localhost:3000/Animais/${nomeAnimal}');
+        const data = await res.json();
+
+        setAnimais(data);
+    }
 
     async function salvarAnimal(e){
         e.preventDefault();
@@ -230,16 +237,18 @@ function home(){
                 </Lupa>
                 <Input
                 type="text"
+                value={nomeAnimal}
+                onChange={(e) => setNomeAnimal(e.target.value)}
                 
                 />
-                <BtnPesquisa>Pesquisar</BtnPesquisa>
+                <BtnPesquisa onClick={buscarAnimalNome}>Pesquisar</BtnPesquisa>
                 <BtnCad onClick={() => setOpen(true)}>+ Cadastrar</BtnCad>
             </Nav>
 
             <DivMain>
                 <DivMain2>
-                    <label>Nome animal:</label>
-                    <label>Nome Tutor:</label>
+                    <label>Nome animal:{animais.nomeAnimal}</label>
+                    <label>Nome Tutor:{animais.nomeTutor}</label>
                 </DivMain2>
             </DivMain>
 
