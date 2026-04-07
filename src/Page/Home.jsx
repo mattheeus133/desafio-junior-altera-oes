@@ -188,11 +188,20 @@ function home(){
     }, []); // Se o get retornar valor null o codigo nao quebra
 
     async function buscarAnimalNome(){
-        const res = await fetch('http://localhost:3000/Animais/${nomeAnimal}');
+        const res = await fetch(`http://localhost:3000/Animais/${nomeAnimal}`); //crase é o correto para o app ler a url da Api
         const data = await res.json();
 
+        console.log("Resultado", res.status);
+       
+
         setAnimais(data);
+
+        animais.map(animais =>{
+        console.log("Nome Animal: ", animais.nomeAnimal);
+        })
     }
+
+
 
     async function salvarAnimal(e){
         e.preventDefault();
@@ -247,8 +256,8 @@ function home(){
 
             <DivMain>
                 <DivMain2>
-                    <label>Nome animal:{animais.nomeAnimal}</label>
-                    <label>Nome Tutor:{animais.nomeTutor}</label>
+                    <label style={{color: 'white'}}>Nome animal: {animais.nomeAnimal}</label>
+                    <label style={{color: 'white'}}>Nome Tutor: {animais.nomeTutor}</label>
                 </DivMain2>
             </DivMain>
 
