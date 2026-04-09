@@ -85,7 +85,15 @@ const DivMain = styled.div`
 const DivMain2 = styled.div`
     border: 1px solid red;
     margin: 50px;
+    width: 300px;
+    height: 95px;
+    display: flex;
+    flex-direction: column;
 `
+const LabelMain = styled.label`
+    
+`
+
 /* ------ Style Modal -------- */
 
 const DivModal = styled.div`
@@ -197,8 +205,10 @@ function home(){
         setAnimais(data);
 
         animais.map(animais =>{
-        console.log("Nome Animal: ", animais.nomeAnimal);
+        console.log("Nome Animal: ", animais.nomeanimal);
         })
+
+        console.log(animais);
     }
 
 
@@ -256,8 +266,8 @@ function home(){
 
             <DivMain>
                 <DivMain2>
-                    <label style={{color: 'white'}}>Nome animal: {animais.nomeAnimal}</label>
-                    <label style={{color: 'white'}}>Nome Tutor: {animais.nomeTutor}</label>
+                    <label style={{color: 'white'}}>Nome animal: {animais.nomeanimal}</label>
+                    <label style={{color: 'white'}}>Nome Tutor: {animais.nometutor}</label>
                 </DivMain2>
             </DivMain>
 
