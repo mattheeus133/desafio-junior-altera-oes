@@ -6,6 +6,8 @@ import { PiDogBold } from "react-icons/pi";
 import { PiCatBold } from "react-icons/pi";
 import { RiDnaLine } from "react-icons/ri";
 import { HiMagnifyingGlass } from "react-icons/hi2";
+import { PiDog } from "react-icons/pi";
+
 
 export const IconLupa =  <HiMagnifyingGlass className="icon"/>
 
@@ -17,3 +19,5 @@ export const Cachorro = <PiDogBold/>
 export const Gato = <PiCatBold/>
 export const AnimalRaca = <RiDnaLine/>
 export const Date = <CiCalendarDate/>
+
+export const DogDiv = <PiDog/>

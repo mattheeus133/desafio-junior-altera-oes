@@ -5,7 +5,7 @@ import '../Styles/Style.css'
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "../Components/modal";
 import {styleInput} from "../Styles/common"
-import {IconLupa, NomeAnimal, NomeTutor, Telefone, Cachorro, Gato, AnimalRaca,  Date} from "../Utils/Icons"
+import {IconLupa, NomeAnimal, NomeTutor, Telefone, Cachorro, Gato, AnimalRaca,  Date, DogDiv} from "../Utils/Icons"
 
 
 
@@ -87,11 +87,25 @@ const DivMain2 = styled.div`
     margin: 50px;
     width: 300px;
     height: 95px;
+`
+const DivLabel = styled.div`
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    border: 1px solid red;
+    height: 100%;
+    margin-left: 30%;
 `
+
+
 const LabelMain = styled.label`
-    
+
+`
+const DivIconAnimal = styled.div`
+    border: 1px solid white;
+    width: 25%;
 `
 
 /* ------ Style Modal -------- */
@@ -266,8 +280,13 @@ function home(){
 
             <DivMain>
                 <DivMain2>
-                    <label style={{color: 'white'}}>Nome animal: {animais.nomeanimal}</label>
-                    <label style={{color: 'white'}}>Nome Tutor: {animais.nometutor}</label>
+                    <DivLabel>
+                        <DivIconAnimal>
+                             {DogDiv}
+                        </DivIconAnimal>
+                        <LabelMain style={{color: 'white'}}>Nome animal: {animais.nomeanimal}</LabelMain>
+                        <LabelMain style={{color: 'white'}}>Nome Tutor: {animais.nometutor}</LabelMain>
+                    </DivLabel>
                 </DivMain2>
             </DivMain>
 
