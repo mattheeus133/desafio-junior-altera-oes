@@ -20,4 +20,4 @@ export const Gato = <PiCatBold/>
 export const AnimalRaca = <RiDnaLine/>
 export const Date = <CiCalendarDate/>
 
-export const DogDiv = <PiDog/>
+export const DogDiv = <PiDog className="iconAnimal"/>

@@ -79,33 +79,52 @@ const Lupa = styled.div`
     border-radius: 5px;
 `
 const DivMain = styled.div`
-    border: 1px solid red;
+    border: 1px solid green;
     height: 60vh;
 `
 const DivMain2 = styled.div`
-    border: 1px solid red;
+    //border: 1px solid yellow;
     margin: 50px;
     width: 300px;
     height: 95px;
 `
 const DivLabel = styled.div`
     display: flex;
+    flex-direction: row;
+    width: 100%;
+  //  border: 1px solid red;
+    height: 100%;
+   
+`
+
+const DivLabel2 = styled.div`
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    border: 1px solid red;
+    width: 70%;
     height: 100%;
-    margin-left: 30%;
+    border: 1px solid white;
+`
+
+const DivIcon2 = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    border: 1px solid red;
+   
 `
 
 
 const LabelMain = styled.label`
-
+    
 `
 const DivIconAnimal = styled.div`
     border: 1px solid white;
     width: 25%;
+    height: 100%;
 `
 
 /* ------ Style Modal -------- */
@@ -209,6 +228,20 @@ function home(){
         buscarAnimal();
     }, []); // Se o get retornar valor null o codigo nao quebra
 
+    const buscarAnimais = async () => {
+        try{
+            const response = await fetch("http://localhost:3000/Animais");
+            const data =  await response.json();
+
+            console.log("Datos da Api: ", data);
+
+            setAnimais(data);
+        }catch(erro){
+            console.log("Erro ao buscar", erro)
+        }
+    }
+
+
     async function buscarAnimalNome(){
         const res = await fetch(`http://localhost:3000/Animais/${nomeAnimal}`); //crase é o correto para o app ler a url da Api
         const data = await res.json();
@@ -282,10 +315,19 @@ function home(){
                 <DivMain2>
                     <DivLabel>
                         <DivIconAnimal>
+                            <DivIcon2>
                              {DogDiv}
+                            </DivIcon2>
                         </DivIconAnimal>
-                        <LabelMain style={{color: 'white'}}>Nome animal: {animais.nomeanimal}</LabelMain>
+                              {animais.length === 0 ? (
+                            <p>Carregando...</p>) : (animais.map(animal => (
+                        <DivLabel2 key={animal.id}>
+                        <LabelMain style={{color: 'white'}} key={animais.id}>Nome animal: {animais.nomeanimal}</LabelMain>
                         <LabelMain style={{color: 'white'}}>Nome Tutor: {animais.nometutor}</LabelMain>
+                        </DivLabel2>
+                         ))
+                    )}
+
                     </DivLabel>
                 </DivMain2>
             </DivMain>
