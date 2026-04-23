@@ -83,14 +83,15 @@ const DivMain = styled.div`
     height: 60vh;
 `
 const DivMain2 = styled.div`
-    //border: 1px solid yellow;
+    border: 1px solid yellow;
     margin: 50px;
-    width: 300px;
+    width: 100%;
     height: 95px;
 `
 const DivLabel = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap ;
     width: 100%;
   //  border: 1px solid red;
     height: 100%;
@@ -102,7 +103,7 @@ const DivLabel2 = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70%;
+    width: 20%;
     height: 100%;
     border: 1px solid white;
 `
@@ -111,7 +112,7 @@ const DivIcon2 = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 50%;
     height: 100%;
     border: 1px solid red;
    
@@ -322,8 +323,8 @@ function home(){
                               {animais.length === 0 ? (
                             <p>Carregando...</p>) : (animais.map(animal => (
                         <DivLabel2 key={animal.id}>
-                        <LabelMain style={{color: 'white'}} key={animais.id}>Nome animal: {animais.nomeanimal}</LabelMain>
-                        <LabelMain style={{color: 'white'}}>Nome Tutor: {animais.nometutor}</LabelMain>
+                        <LabelMain style={{color: 'white'}} key={animal.id}>Nome animal: {animal.nomeanimal}</LabelMain>
+                        <LabelMain style={{color: 'white'}}>Nome Tutor: {animal.nometutor}</LabelMain>
                         </DivLabel2>
                          ))
                     )}
