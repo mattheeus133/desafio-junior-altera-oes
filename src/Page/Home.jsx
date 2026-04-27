@@ -112,7 +112,7 @@ const DivIcon2 = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%;
+    width: 100%;
     height: 100%;
     border: 1px solid red;
    
@@ -124,7 +124,7 @@ const LabelMain = styled.label`
 `
 const DivIconAnimal = styled.div`
     border: 1px solid white;
-    width: 25%;
+    width: 5%;
     height: 100%;
 `
 
@@ -316,7 +316,7 @@ function home(){
                 <DivMain2>
                     <DivLabel>
                         <DivIconAnimal>
-                            <DivIcon2>
+                             <DivIcon2>
                              {DogDiv}
                             </DivIcon2>
                         </DivIconAnimal>
