@@ -5,7 +5,7 @@ import '../Styles/Style.css'
 import { useEffect, useRef, useState } from "react";
 import { Modal } from "../Components/modal";
 import {styleInput} from "../Styles/common"
-import {IconLupa, NomeAnimal, NomeTutor, Telefone, Cachorro, Gato, AnimalRaca,  Date, DogDiv} from "../Utils/Icons"
+import {IconLupa, NomeAnimal, NomeTutor, Telefone, Cachorro, Gato, AnimalRaca,  Date, DogDiv, CatDiv} from "../Utils/Icons"
 
 
 
@@ -314,22 +314,30 @@ function home(){
 
             <DivMain>
                 <DivMain2>
-                    <DivLabel>
-                        <DivIconAnimal>
-                             <DivIcon2>
-                             {DogDiv}
+                     {animais.length === 0 ? (
+                        <p>Carregando...</p>) : (animais.map(animal => (
+                    <DivLabel  key={animal.id}>
+                              <DivIconAnimal>
+                             <DivIcon2> 
+                                {animal.checkcachorro ? (
+                                <span>{DogDiv}</span>    
+                                ) : (
+                                <span>{CatDiv}</span>
+                                )}
+
                             </DivIcon2>
-                        </DivIconAnimal>
-                              {animais.length === 0 ? (
-                            <p>Carregando...</p>) : (animais.map(animal => (
-                        <DivLabel2 key={animal.id}>
-                        <LabelMain style={{color: 'white'}} key={animal.id}>Nome animal: {animal.nomeanimal}</LabelMain>
+                            </DivIconAnimal>
+                       
+                      
+                        <DivLabel2>
+                        <LabelMain style={{color: 'white'}} key={animal.id}>Nome animal: {animal.nomeanimal}</LabelMain> {/*  sempre atento a forma que esta salvo no banco se nao cod nao funciona nao  puxa os dados certos */}
                         <LabelMain style={{color: 'white'}}>Nome Tutor: {animal.nometutor}</LabelMain>
                         </DivLabel2>
+                    
+                    </DivLabel>
                          ))
                     )}
 
-                    </DivLabel>
                 </DivMain2>
             </DivMain>
 
