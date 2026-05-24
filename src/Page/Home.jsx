@@ -84,7 +84,7 @@ const DivMain = styled.div`
 `
 const DivMain2 = styled.div`
     border: 1px solid yellow;
-    margin: 50px;
+   // margin: 50px;
     width: 100%;
     height: 95px;
 `
